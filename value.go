@@ -204,20 +204,6 @@ func pointerElem(p unsafe.Pointer) unsafe.Pointer {
 
 var errValueUsable error
 
-func init() {
-	if errValueUsable == nil {
-		errValueUsable = checkGoVersion(runtime.Version())
-	}
-}
-
-func checkGoVersion(goVer string) error {
-	const s = "go1."
-	if strings.HasPrefix(goVer, s) || strings.Contains(goVer, " "+s) {
-		return nil
-	}
-	return fmt.Errorf("ameda Value: required go<2.0, but current version is '%s'", goVer)
-}
-
 func checkValueUsable() {
 	if errValueUsable != nil {
 		panic(errValueUsable)
