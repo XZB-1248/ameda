@@ -1,10 +1,8 @@
 package ameda
 
 import (
-	"fmt"
 	"reflect"
 	"runtime"
-	"strings"
 	"unsafe"
 )
 
